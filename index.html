@@ -1,0 +1,135 @@
+<html lang="en">
+
+<head>
+	<title>O. Oshota et al. - Supplementary Material</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.3.2/papaparse.min.js"></script>
+
+	<style>
+		.container {
+			max-width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+  <div class="container-fluid">
+		<h1>Supplementary Material</h1>
+		<h4>Transcriptome and Proteome Analysis of <em>Salmonella enterica serovar Typhimurium</em> Systemic Infection of Wild Type and Immune-deficient Mice.</h4>
+		<p>Supplementary files can be downloaded from <a href="https://github.com/OJOshota/transcriptome_proteomics_paper">GitHub</a>.</p>
+
+		<div class="form-group">
+			<label for="table-select">Select table:</label>
+		 	<select class="form-control" id="table-select">
+			</select>
+		</div>
+
+		<div id="div-table-caption"></div>
+		<div id="div-table">
+			<table id="sup-table" class="table table-striped table-hover" cellspacing="0" width="100%">
+			</table>
+		</div>
+  </div>
+
+	<br><br><br>
+
+	<!-- footer -->
+</body>
+
+<script type="text/javascript">
+	var PLACEHOLDER = "---";
+	var SELECTED = true;
+
+	var data_table;
+	var table_captions = {};
+
+	// production
+  var url_rawgit_project = "https://rawgit.com/ojoshota/transcriptome_proteomics_paper/master/data/csv/";
+	var url_table_index = url_rawgit_project + "table_index.csv";
+
+	// development
+	// var url_rawgit_project = "data/csv/";
+	// var url_table_index = url_rawgit_project + "table_index.csv";
+
+	var table_select_handle = $("#table-select");
+	table_select_handle.change(function(e) {
+		var table_id = $(this).val();
+
+		if (table_id === PLACEHOLDER) {
+			return;
+		}
+
+		var url_table_index = url_rawgit_project + table_id + ".csv";
+
+		Papa.parse(url_table_index, {
+	    download: true,
+			complete: function(results) {
+				var data = results.data;
+				var headers = data.shift();
+				var table_handle = $("#sup-table");
+
+				var data_norm = []
+				var n_headers = headers.length;
+				for (var i = 0; i < data.length; i++) {
+					if (data[i].length === n_headers) {
+						data_norm.push(data[i]);
+					}
+				}
+				data = data_norm;
+
+				var datatables_config = {
+					"data": data,
+			    "ordering": false,
+			    "order": [],
+			    "searching": true,
+			    "pageLength": 25
+		    };
+
+				if (typeof data_table !== "undefined") {
+					data_table.destroy();
+					table_handle.empty();
+				}
+
+				$("#div-table-caption").html("<p>" + table_captions[table_id] + "</p>");
+
+				table_header = "<thead><tr>";
+				for (var i = 0; i < headers.length; i++) {
+					table_header += "<td>" + headers[i] + "</td>";
+				}
+				table_header += "</tr></thead>";
+				table_handle.append(table_header);
+
+				data_table = $("#sup-table").DataTable(datatables_config);
+			}
+		});
+	});
+
+  Papa.parse(url_table_index, {
+    download: true,
+    complete: function(results) {
+			var data = results.data;
+			$("#table-select").append(new Option(PLACEHOLDER, PLACEHOLDER, SELECTED, SELECTED));
+  		for (var i = 0; i < data.length; i++) {
+				var record = data[i];
+				if (record.length === 3) {
+					$("#table-select").append(new Option(record[1], record[0]));
+					table_captions[record[0]] = record[2];
+				}
+			}
+    }
+  });
+</script>
+</html>

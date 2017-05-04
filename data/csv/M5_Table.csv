@@ -1,0 +1,64 @@
+Datasets compared,Number of DE genes,KEGG pathways in DE gene datasets
+Group 1 6h vs Group 1 0h - unique,Total: 0,
+,Up-regulated: 0,None
+,Down-regulated: 0,None
+Group 2 6h vs Group 2 0h - unique,Total: 0,
+,Up-regulated: 0,None
+,Down-regulated: 0,None
+Group 3 6h vs Group 3 0h - unique,Total: 109,
+,Up-regulated: 5,None
+,Down-regulated: 104,Ribosome; Antigen processing and presentation
+Group 1 6h vs Group 1 0h vs Group 2 6h vs Group 2 0h - shared,Total: 0,
+,Up-regulated: 0,None
+,Down-regulated: 0,None
+Group 1 6h vs Group 1 0h vs Group 3 6h vs Group 3 0h - shared,Total: 0,
+,Up-regulated: 0,None
+,Down-regulated: 0,None
+Group 2 6h vs Group 2 0h vs Group 3 6h vs Group 3 0h - shared,Total: 0,
+,Up-regulated: 0,None
+,Down-regulated: 0,None
+Group 1 6h vs Group 1 0h vs Group 2 6h vs Group 2 0h vs Group 3 6h vs Group 3 0h - shared,Total: 0,
+,Up-regulated: 0,None
+,Down-regulated: 0,None
+Group 1 72h vs Group 1 0h - unique,Total: 24,
+,Up-regulated: 19,None
+,Down-regulated: 5,None
+Group 2 48h vs Group 2 0h - unique,Total: 41,
+,Up-regulated: 27,None
+,Down-regulated: 14,None
+Group 3 72h vs Group 3 0h - unique,Total: 420,
+,Up-regulated: 195,Toll-like receptor signalling pathway
+,Down-regulated: 225,Ribosome; B cell receptor signalling pathway; Primary immunodeficiency
+Group 1 72h vs Group 1 0h vs Group 2 48h vs Group 2 0h - shared,Total: 42,
+,Up-regulated: 24,None
+,Down-regulated: 18,None
+Group 1 72h vs Group 1 0h vs Group 3 72h vs Group 3 0h - shared,Total: 50,
+,Up-regulated: 37,None
+,Down-regulated: 13,None
+Group 2 48h vs Group 2 0h vs Group 3 72h vs Group 3 0h - shared,Total: 18,
+,Up-regulated: 7,None
+,Down-regulated: 11,None
+Group 1 72h vs Group 1 0h vs Group 2 48h vs Group 2 0h vs Group 3 72h vs Group 3 0h - shared,Total: 180,
+,Up-regulated: 142,Chemokine signalling pathway; Toll-like receptor signalling pathway; RIG-I-like receptor signalling pathway; NOD-like receptor signalling pathway
+,Down-regulated: 38,None
+Group 1 72h vs Group 1 6h - unique,Total: 14,
+,Up-regulated: 10,None
+,Down-regulated: 4,None
+Group 2 48h vs Group 2 6h - unique,Total: 31,
+,Up-regulated: 11,None
+,Down-regulated: 20,NOD-like receptor signalling pathway; Chemokine signalling pathway; Toll-like receptor signalling pathway
+Group 3 72h vs Group 3 6h - unique,Total: 176,
+,Up-regulated: 130,Toll-like receptor signalling pathway
+,Down-regulated: 46,None
+Group 1 72h vs Group 1 6h vs Group 2 48h vs Group 2 6h - shared,Total: 19,
+,Up-regulated: 12,None
+,Down-regulated: 7,None
+Group 1 72h vs Group 1 6h vs Group 3 72h vs Group 3 6h - shared,Total: 34,
+,Up-regulated: 30,NOD-like receptor signalling pathway
+,Down-regulated: 4,None
+Group 2 48h vs Group 2 6h vs Group 3 72h vs Group 3 6h - shared,Total: 17,
+,Up-regulated: 12,None
+,Down-regulated: 5,None
+Group 1 72h vs Group 1 6h vs Group 2 48h vs Group 2 6h vs Group 3 72h vs Group 3 6h - shared,Total: 81,
+,Up-regulated: 71,NOD-like receptor signalling pathway; Chemokine signalling pathway
+,Down-regulated: 10,None
